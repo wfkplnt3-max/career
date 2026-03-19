@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>髙橋七海 — CS戦略の進化と自身の役割</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #F2F2F2;
+    --surface:   #ffffff;
+    --surface2:  #FAE4E1;
+    --border:    #CCCCCC;
+    --border2:   #B2B2B2;
+    --c1: #F9634A;
+    --c2: #F97A64;
+    --c3: #FAE4E1;
+    --text-primary:   #323232;
+    --text-secondary: #4C4C4C;
+    --text-muted:     #999999;
+    --radius: 6px;
+    --tr: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+  .mono { font-family: 'DM Mono', monospace; }
+  .label-xs {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* FADE-UP */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity 0.6s cubic-bezier(0.4,0,0.2,1), transform 0.6s cubic-bezier(0.4,0,0.2,1);
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* HERO */
+  .hero {
+    padding: 84px 44px 60px;
+    max-width: 1060px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    top: -160px; right: -120px;
+    width: 560px; height: 560px;
+    background: radial-gradient(circle, rgba(249,99,74,0.08) 0%, transparent 68%);
+    pointer-events: none;
+  }
+  .hero-bg-illustration {
+    position: absolute;
+    top: 0; right: -20px;
+    width: 420px; height: 100%;
+    pointer-events: none;
+    opacity: 0.07;
+    overflow: hidden;
+  }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 28px;
+  }
+  .hero-eyebrow-line { width: 36px; height: 2px; background: var(--c1); }
+  .hero-eyebrow span {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.22em;
+    color: var(--c1); text-transform: uppercase;
+  }
+  .hero-title {
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(28px, 3.8vw, 46px);
+    font-weight: 700; line-height: 1.3;
+    margin-bottom: 10px;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+  }
+  .hero-title em { font-style: normal; color: var(--c1); }
+  .hero-subtitle {
+    font-size: 18px; color: var(--text-muted);
+    margin-bottom: 36px; font-weight: 300;
+  }
+  .hero-meta {
+    display: flex; gap: 36px; flex-wrap: wrap;
+    margin-bottom: 44px; padding-bottom: 36px;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-meta-item { display: flex; flex-direction: column; gap: 4px; }
+  .hero-meta-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 0.16em;
+    color: var(--text-muted); text-transform: uppercase;
+  }
+  .hero-meta-value { font-size: 17px; color: var(--text-secondary); font-weight: 500; }
+  .strength-banner {
+    background: #ffffff;
+    border: 1px solid #FAB9AF;
+    border-radius: 8px;
+    padding: 36px 40px;
+    max-width: 820px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(249,99,74,0.08);
+  }
+  .strength-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #F9634A, #FAA496);
+  }
+  .strength-banner-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 0.2em;
+    color: var(--c1); text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .strength-banner-label::after {
+    content: ''; flex: 1; height: 1px; background: #FAB9AF;
+  }
+  .strength-banner-catch {
+    font-family: 'Inter', sans-serif;
+    font-size: 26px; font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+  }
+  .strength-banner-catch em {
+    font-style: normal;
+    color: var(--c1);
+  }
+  .strength-banner p {
+    font-size: 17px; color: #4C4C4C; line-height: 1.9;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+  }
+  .strength-banner strong { color: var(--text-primary); font-weight: 600; }
+
+  /* SECTION DIVIDER */
+  .sec-div {
+    display: flex; align-items: center; gap: 18px;
+    padding: 56px 44px 32px;
+    max-width: 1060px; margin: 0 auto;
+  }
+  .sec-div-line { flex: 1; height: 1px; background: var(--border); }
+  .sec-div-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px; font-weight: 700;
+    color: var(--text-primary); white-space: nowrap;
+    letter-spacing: -0.01em;
+  }
+
+  /* TIMELINE */
+  .tl-section { padding: 0 44px 56px; max-width: 1060px; margin: 0 auto; }
+
+  /* sticky bar */
+  .tl-sticky-bar {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(242,242,242,0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid #CCCCCC;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    padding: 10px 44px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  .tl-sticky-bar.visible { display: block; }
+  .tl-sticky-inner {
+    max-width: 1060px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .tl-sticky-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.15em;
+    color: #999999; text-transform: uppercase;
+    white-space: nowrap;
+    margin-right: 20px;
+    flex-shrink: 0;
+  }
+  .tl-sticky-nodes {
+    display: flex;
+    gap: 2px;
+    flex: 1;
+    overflow: hidden;
+  }
+  .tl-sticky-node {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 4px 3px 6px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    background: transparent;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
+    min-width: 0;
+  }
+  .tl-sticky-node:hover {
+    background: #ffffff;
+    border-color: #FAB9AF;
+    transform: translateY(-2px);
+  }
+  .tl-sticky-node.active {
+    background: #ffffff;
+    border-color: var(--c1);
+  }
+  .tl-sticky-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    border: 2px solid #CCCCCC; background: #F2F2F2;
+    margin-bottom: 5px; flex-shrink: 0;
+    transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  }
+  .tl-sticky-node.active .tl-sticky-dot,
+  .tl-sticky-node:hover .tl-sticky-dot {
+    border-color: var(--c1); background: var(--c1);
+    box-shadow: 0 0 6px rgba(249,99,74,0.5);
+  }
+  .tl-sticky-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 600; line-height: 1.3;
+    color: #999999; text-align: center;
+    transition: color 0.2s;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .tl-sticky-node.active .tl-sticky-name,
+  .tl-sticky-node:hover .tl-sticky-name { color: var(--c1); }
+
+  .tl-track {
+    position: relative; display: flex; gap: 4px;
+    padding: 12px 0 16px;
+  }
+  .tl-track::before {
+    content: ''; position: absolute;
+    top: 33px; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, #CCCCCC 0%, #FAA496 60%, #F9634A 100%);
+    z-index: 0;
+  }
+  .tl-node {
+    position: relative; z-index: 1;
+    flex: 1; min-width: 0;
+    display: flex; flex-direction: column; align-items: center;
+    cursor: pointer; padding: 8px 4px 10px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    background: transparent;
+    transition: background 0.25s ease, border-color 0.25s ease,
+                transform 0.25s cubic-bezier(0.34,1.56,0.64,1),
+                box-shadow 0.25s ease;
+  }
+  .tl-node:hover {
+    background: #ffffff;
+    border-color: #FAB9AF;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 28px rgba(249,99,74,0.14);
+  }
+  .tl-node.active {
+    background: #ffffff;
+    border-color: var(--c1);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 28px rgba(249,99,74,0.2);
+  }
+  .tl-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    border: 2px solid #B2B2B2; background: #F2F2F2;
+    margin-bottom: 12px; flex-shrink: 0;
+    transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
+  }
+  .tl-node:hover .tl-dot, .tl-node.active .tl-dot {
+    border-color: var(--c1); background: var(--c1);
+    box-shadow: 0 0 10px rgba(249,99,74,0.5);
+  }
+  .tl-info { text-align: center; }
+  .tl-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; color: var(--text-muted); margin-bottom: 5px;
+    transition: color 0.2s;
+  }
+  .tl-node:hover .tl-date, .tl-node.active .tl-date { color: #F97A64; }
+  .tl-name {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px; font-weight: 600; line-height: 1.4;
+    color: #666666; transition: color 0.2s;
+  }
+  .tl-node:hover .tl-name, .tl-node.active .tl-name { color: var(--c1); }
+  .tl-badge {
+    margin-top: 7px; font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    padding: 3px 10px; border-radius: 20px;
+    background: #F2F2F2; color: var(--text-muted);
+    border: 1px solid #CCCCCC;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+  }
+  .tl-node:hover .tl-badge, .tl-node.active .tl-badge {
+    background: var(--c3); color: var(--c1); border-color: #FAB9AF;
+  }
+
+  /* TOGGLE ALL BUTTON */
+  .phases-header {
+    max-width: 1060px; margin: 0 auto;
+    padding: 0 44px 16px;
+    display: flex; justify-content: flex-end;
+  }
+  .toggle-all-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px; letter-spacing: 0.08em;
+    color: #666666;
+    background: #ffffff;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .toggle-all-btn:hover {
+    background: var(--c3);
+    border-color: #FAB9AF;
+    color: var(--c1);
+  }
+  .toggle-all-btn svg {
+    width: 12px; height: 12px;
+    stroke: currentColor; fill: none;
+    stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    transition: transform 0.2s;
+  }
+
+  /* ROLE EVOLUTION — stronger */
+  .role-evo {
+    max-width: 1060px; margin: 0 auto;
+    padding: 0 44px 56px;
+    display: flex; gap: 0;
+  }
+  .role-block {
+    flex: 1; padding: 20px 20px 18px;
+    border-top: 3px solid #CCCCCC;
+    background: #ffffff;
+    border-radius: 0;
+    transition: border-top-color 0.2s, box-shadow 0.2s;
+  }
+  .role-block:not(:last-child) { border-right: 1px solid #ECDAD8; }
+  .role-block:first-child { border-radius: 6px 0 0 6px; }
+  .role-block:last-child  { border-radius: 0 6px 6px 0; border-top-color: var(--c1); }
+  .role-block:hover { box-shadow: 0 4px 16px rgba(249,99,74,0.09); border-top-color: var(--c2); }
+  .role-block:last-child:hover { border-top-color: var(--c1); }
+  .role-block-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px;
+  }
+  .role-block-title { font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; line-height: 1.5; color: var(--text-primary); letter-spacing: -0.01em; }
+  .role-block-ph {
+    font-size: 12px; color: var(--text-muted); margin-top: 6px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* PHASE CARDS */
+  .phases { max-width: 1060px; margin: 0 auto; padding: 0 44px 80px; display: flex; flex-direction: column; gap: 10px; }
+
+  .pcard {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); overflow: hidden;
+    transition: border-color var(--tr), box-shadow var(--tr);
+  }
+  .pcard:hover { border-color: #FAB9AF; box-shadow: 0 2px 12px rgba(249,99,74,0.07); }
+  .pcard.open { border-color: var(--c2); box-shadow: 0 2px 16px rgba(249,99,74,0.1); }
+
+  .phead {
+    display: flex; align-items: center; gap: 0;
+    padding: 20px 22px; cursor: pointer; user-select: none;
+    position: relative; transition: background var(--tr);
+  }
+  .phead:hover { background: #FAE4E1; }
+  .phead-accent {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: #CCCCCC; transition: background var(--tr);
+  }
+  .pcard.open .phead-accent { background: var(--c1); }
+
+  .pnum { font-family: 'DM Mono', monospace; font-size: 14px; color: var(--text-muted); flex-shrink: 0; width: 26px; margin-right: 10px; }
+  .pdot {
+    width: 8px; height: 8px; border-radius: 50%; background: #CCCCCC;
+    flex-shrink: 0; transition: background var(--tr), box-shadow var(--tr);
+    margin-right: 14px;
+  }
+  .pcard.open .pdot, .phead:hover .pdot {
+    background: var(--c1); box-shadow: 0 0 8px rgba(249,99,74,0.4);
+  }
+
+  /* 左側：フェーズ名・期間・役職・部員数を一列に */
+  .phead-info {
+    flex: 1;
+    display: flex; align-items: center;
+    gap: 16px; flex-wrap: wrap;
+  }
+  .ptitle { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; }
+  .pdate { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--text-muted); }
+  .prole {
+    font-size: 13px; font-weight: 600;
+    color: var(--c1);
+    font-family: 'Inter', sans-serif;
+  }
+  .pmembers { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--text-muted); }
+
+  /* 右側：クリックで展開 + chevron */
+  .phead-right {
+    display: flex; align-items: center; gap: 10px;
+    flex-shrink: 0; margin-left: 20px;
+  }
+
+  /* click hint */
+  .click-hint {
+    font-size: 11px; color: var(--text-muted);
+    font-family: 'DM Mono', monospace; white-space: nowrap;
+    transition: opacity var(--tr);
+  }
+  .pcard.open .click-hint { display: none; }
+
+  /* chevron */
+  .chevron {
+    width: 22px; height: 22px;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-muted); transition: transform var(--tr), color var(--tr);
+    flex-shrink: 0;
+  }
+  .chevron svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .phead:hover .chevron { color: var(--c1); }
+  .pcard.open .chevron { transform: rotate(180deg); color: var(--c1); }
+
+  /* ACCORDION BODY */
+  .pbody-wrap {
+    display: grid; grid-template-rows: 0fr;
+    transition: grid-template-rows 0.38s cubic-bezier(0.4,0,0.2,1);
+  }
+  .pcard.open .pbody-wrap { grid-template-rows: 1fr; }
+  .pbody-inner { overflow: hidden; }
+  .pbody {
+    padding: 4px 22px 26px 60px;
+    opacity: 0; transform: translateY(8px);
+    transition: opacity 0.28s ease 0.12s, transform 0.28s ease 0.12s;
+  }
+  .pcard.open .pbody { opacity: 1; transform: translateY(0); }
+
+  /* GRID inside body */
+  .pgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 4px; }
+  .psec {
+    background: #FAF6F5; border: 1px solid #ECDAD8;
+    border-radius: 4px; padding: 18px 20px;
+  }
+  .psec.fw { grid-column: 1 / -1; }
+  .psec-label {
+    font-family: 'Inter', sans-serif; font-size: 13px;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    font-weight: 600; color: #666666; margin-bottom: 12px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .psec-label::after { content: ''; flex: 1; height: 1px; background: #ECDAD8; }
+  .psec-content { font-size: 16px; color: var(--text-secondary); line-height: 1.85; }
+  .psec-content strong { color: var(--text-primary); font-weight: 600; }
+
+  /* list */
+  .施策-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+  .施策-list li {
+    display: flex; align-items: flex-start; gap: 9px;
+    font-size: 16px; color: var(--text-secondary);
+  }
+  .施策-list li::before {
+    content: '—'; color: var(--c2); flex-shrink: 0;
+    font-size: 13px; margin-top: 3px;
+  }
+
+  /* parallel */
+  .par-badge {
+    background: var(--c3); border: 1px solid #FAB9AF;
+    border-radius: 3px; padding: 7px 12px; margin-bottom: 16px;
+    font-size: 12px; color: var(--c1);
+    font-family: 'DM Mono', monospace;
+  }
+  .par-wrap { display: flex; gap: 10px; flex-wrap: wrap; }
+  .par-wrap .pcard { flex: 1; min-width: 300px; }
+  .par-wrap .pbody { padding-left: 22px; }
+
+  /* STRENGTHS */
+  .strengths { max-width: 1060px; margin: 0 auto; padding: 0 44px 88px; }
+  .str-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 8px; }
+  .str-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 28px 24px;
+    position: relative; overflow: hidden;
+    transition: border-color var(--tr), transform var(--tr), box-shadow var(--tr);
+  }
+  .str-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #FA8F7D, var(--c1));
+  }
+  .str-card:hover {
+    border-color: #FAB9AF; transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(249,99,74,0.12);
+  }
+  .str-bg {
+    font-family: 'DM Mono', monospace; font-size: 64px; font-weight: 500;
+    opacity: 0.05; position: absolute; top: 10px; right: 16px;
+    line-height: 1; color: var(--c1); pointer-events: none;
+  }
+  .str-icon {
+    width: 36px; height: 36px; background: var(--c3);
+    border: 1px solid #FAB9AF; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+  }
+  .str-title {
+    font-family: 'Inter', sans-serif; font-size: 18px;
+    font-weight: 700; margin-bottom: 12px; line-height: 1.4;
+    color: var(--text-primary); letter-spacing: -0.01em;
+  }
+  .str-desc { font-size: 15px; color: var(--text-secondary); line-height: 1.8; }
+  .str-tags { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .str-tag {
+    font-family: 'DM Mono', monospace; font-size: 12px;
+    padding: 4px 12px; border-radius: 4px;
+    background: var(--c3); color: #F9634A;
+    border: 1px solid #FAB9AF;
+    font-weight: 500;
+  }
+
+  /* GOAL-RESULT TABLE */
+  .gr-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+  }
+  .gr-table thead tr {
+    display: grid;
+    grid-template-columns: 1fr 24px 1fr;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .gr-table thead th {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 400; padding: 0 0 8px;
+    border-bottom: none;
+  }
+  .gr-table thead th.col-goal { color: var(--text-muted); text-align: left; }
+  .gr-table thead th.col-arrow { text-align: center; color: #CCCCCC; }
+  .gr-table thead th.col-result { color: var(--c1); text-align: left; }
+
+  .gr-row {
+    display: grid;
+    grid-template-columns: 1fr 24px 1fr;
+    align-items: start;
+    padding: 14px 0;
+    border-top: 1px solid #ECDAD8;
+    gap: 0;
+    transition: background var(--tr);
+  }
+  .gr-row:last-child { border-bottom: none; }
+  .gr-row:hover { background: rgba(249,99,74,0.03); border-radius: 3px; }
+
+  .gr-goal {
+    padding-right: 12px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .gr-goal .gr-tag,
+  .gr-result .gr-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace; font-size: 10px;
+    padding: 2px 8px; border-radius: 2px;
+    background: #F2F2F2; color: var(--text-muted);
+    border: 1px solid #CCCCCC;
+    margin-bottom: 0;
+    align-self: flex-start;
+  }
+  .gr-goal .gr-tag.self,
+  .gr-result .gr-tag.self { color: var(--c1); border-color: #FAB9AF; background: var(--c3); }
+
+  .gr-arrow {
+    text-align: center; color: #B2B2B2;
+    font-size: 14px;
+    padding-top: 24px;
+  }
+
+  .gr-result {
+    padding-left: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .gr-result-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 22px; font-weight: 500;
+    color: var(--c1); line-height: 1.1;
+  }
+  .gr-result-label {
+    font-size: 14px; color: var(--text-muted); line-height: 1.6;
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px;
+  }
+  .gr-result-label span { color: #666666; }
+  .gr-result-label .gr-result-badge {
+    font-family: 'DM Mono', monospace; font-size: 12px;
+    color: var(--c1); font-weight: 600; white-space: nowrap;
+  }
+  .gr-no-result {
+    padding-left: 12px;
+    font-size: 14px; color: var(--text-muted);
+    font-family: 'DM Mono', monospace;
+    font-style: italic;
+    padding-top: 24px;
+  }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #CCCCCC; border-radius: 2px; }
+
+  @media (max-width: 740px) {
+    .hero,.tl-section,.role-evo,.phases,.strengths,.sec-div { padding-left: 18px; padding-right: 18px; }
+    .pbody { padding-left: 18px; }
+    .pgrid { grid-template-columns: 1fr; }
+    .str-grid { grid-template-columns: 1fr; }
+    .role-evo { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── STICKY TIMELINE BAR ── -->
+<div class="tl-sticky-bar" id="tlStickyBar">
+  <div class="tl-sticky-inner">
+    <div class="tl-sticky-label">Timeline</div>
+    <div class="tl-sticky-nodes">
+      <div class="tl-sticky-node" id="stn1" onclick="jumpTo('phase1',this,'sticky')"><div class="tl-sticky-dot"></div><div class="tl-sticky-name">オンボーディング<br>支援</div></div>
+      <div class="tl-sticky-node" id="stn2" onclick="jumpTo('phase2',this,'sticky')"><div class="tl-sticky-dot"></div><div class="tl-sticky-name">現場活用<br>浸透</div></div>
+      <div class="tl-sticky-node" id="stn3" onclick="jumpTo('phase3',this,'sticky')"><div class="tl-sticky-dot"></div><div class="tl-sticky-name">価値証明</div></div>
+      <div class="tl-sticky-node" id="stn4" onclick="jumpTo('phase4',this,'sticky')"><div class="tl-sticky-dot"></div><div class="tl-sticky-name">顧客接点<br>最大化</div></div>
+      <div class="tl-sticky-node" id="stn5" onclick="jumpTo('phase5',this,'sticky')"><div class="tl-sticky-dot"></div><div class="tl-sticky-name">リテンション<br>強化</div></div>
+      <div class="tl-sticky-node" id="stn6" onclick="jumpTo('phase6',this,'sticky')"><div class="tl-sticky-dot"></div><div class="tl-sticky-name">エンゲージメント<br>管理</div></div>
+      <div class="tl-sticky-node" id="stn7" onclick="jumpTo('phase7',this,'sticky')"><div class="tl-sticky-dot"></div><div class="tl-sticky-name">データ<br>ドリブン</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero fade-up">
+
+  <!-- 建設現場イラスト（背景） -->
+  <div class="hero-bg-illustration" aria-hidden="true">
+    <svg viewBox="0 0 420 480" xmlns="http://www.w3.org/2000/svg" fill="none" preserveAspectRatio="xMaxYMax meet" style="width:100%;height:100%;">
+      <!-- 高層ビルA（右奥） -->
+      <rect x="290" y="60" width="80" height="420" fill="#323232"/>
+      <!-- ビルAの窓グリッド -->
+      <g fill="#F9634A">
+        <rect x="300" y="75" width="12" height="16"/><rect x="318" y="75" width="12" height="16"/><rect x="336" y="75" width="12" height="16"/><rect x="354" y="75" width="12" height="16"/>
+        <rect x="300" y="101" width="12" height="16"/><rect x="318" y="101" width="12" height="16"/><rect x="336" y="101" width="12" height="16"/><rect x="354" y="101" width="12" height="16"/>
+        <rect x="300" y="127" width="12" height="16"/><rect x="318" y="127" width="12" height="16"/><rect x="336" y="127" width="12" height="16"/><rect x="354" y="127" width="12" height="16"/>
+        <rect x="300" y="153" width="12" height="16"/><rect x="318" y="153" width="12" height="16"/><rect x="336" y="153" width="12" height="16"/><rect x="354" y="153" width="12" height="16"/>
+        <rect x="300" y="179" width="12" height="16"/><rect x="318" y="179" width="12" height="16"/><rect x="336" y="179" width="12" height="16"/><rect x="354" y="179" width="12" height="16"/>
+        <rect x="300" y="205" width="12" height="16"/><rect x="318" y="205" width="12" height="16"/><rect x="336" y="205" width="12" height="16"/><rect x="354" y="205" width="12" height="16"/>
+        <rect x="300" y="231" width="12" height="16"/><rect x="318" y="231" width="12" height="16"/><rect x="336" y="231" width="12" height="16"/><rect x="354" y="231" width="12" height="16"/>
+        <rect x="300" y="257" width="12" height="16"/><rect x="318" y="257" width="12" height="16"/><rect x="336" y="257" width="12" height="16"/><rect x="354" y="257" width="12" height="16"/>
+        <rect x="300" y="283" width="12" height="16"/><rect x="318" y="283" width="12" height="16"/><rect x="336" y="283" width="12" height="16"/><rect x="354" y="283" width="12" height="16"/>
+        <rect x="300" y="309" width="12" height="16"/><rect x="318" y="309" width="12" height="16"/><rect x="336" y="309" width="12" height="16"/><rect x="354" y="309" width="12" height="16"/>
+        <rect x="300" y="335" width="12" height="16"/><rect x="318" y="335" width="12" height="16"/><rect x="336" y="335" width="12" height="16"/><rect x="354" y="335" width="12" height="16"/>
+        <rect x="300" y="361" width="12" height="16"/><rect x="318" y="361" width="12" height="16"/><rect x="336" y="361" width="12" height="16"/><rect x="354" y="361" width="12" height="16"/>
+      </g>
+      <!-- アンテナ -->
+      <rect x="326" y="30" width="4" height="32" fill="#323232"/>
+      <rect x="318" y="44" width="20" height="2" fill="#323232"/>
+
+      <!-- 高層ビルB（中央） -->
+      <rect x="190" y="120" width="70" height="360" fill="#4C4C4C"/>
+      <g fill="#F9634A">
+        <rect x="200" y="134" width="10" height="14"/><rect x="216" y="134" width="10" height="14"/><rect x="232" y="134" width="10" height="14"/><rect x="248" y="134" width="10" height="14"/>
+        <rect x="200" y="158" width="10" height="14"/><rect x="216" y="158" width="10" height="14"/><rect x="232" y="158" width="10" height="14"/><rect x="248" y="158" width="10" height="14"/>
+        <rect x="200" y="182" width="10" height="14"/><rect x="216" y="182" width="10" height="14"/><rect x="232" y="182" width="10" height="14"/><rect x="248" y="182" width="10" height="14"/>
+        <rect x="200" y="206" width="10" height="14"/><rect x="216" y="206" width="10" height="14"/><rect x="232" y="206" width="10" height="14"/><rect x="248" y="206" width="10" height="14"/>
+        <rect x="200" y="230" width="10" height="14"/><rect x="216" y="230" width="10" height="14"/><rect x="232" y="230" width="10" height="14"/><rect x="248" y="230" width="10" height="14"/>
+        <rect x="200" y="254" width="10" height="14"/><rect x="216" y="254" width="10" height="14"/><rect x="232" y="254" width="10" height="14"/><rect x="248" y="254" width="10" height="14"/>
+        <rect x="200" y="278" width="10" height="14"/><rect x="216" y="278" width="10" height="14"/><rect x="232" y="278" width="10" height="14"/><rect x="248" y="278" width="10" height="14"/>
+        <rect x="200" y="302" width="10" height="14"/><rect x="216" y="302" width="10" height="14"/><rect x="232" y="302" width="10" height="14"/><rect x="248" y="302" width="10" height="14"/>
+        <rect x="200" y="326" width="10" height="14"/><rect x="216" y="326" width="10" height="14"/><rect x="232" y="326" width="10" height="14"/><rect x="248" y="326" width="10" height="14"/>
+        <rect x="200" y="350" width="10" height="14"/><rect x="216" y="350" width="10" height="14"/><rect x="232" y="350" width="10" height="14"/><rect x="248" y="350" width="10" height="14"/>
+      </g>
+
+      <!-- 建設中ビルC（手前左）＋クレーン -->
+      <rect x="80" y="220" width="90" height="260" fill="#666666"/>
+      <!-- 足場 -->
+      <rect x="74" y="218" width="4" height="262" fill="#999999"/>
+      <rect x="170" y="218" width="4" height="262" fill="#999999"/>
+      <rect x="74" y="260" width="100" height="3" fill="#999999"/>
+      <rect x="74" y="310" width="100" height="3" fill="#999999"/>
+      <rect x="74" y="360" width="100" height="3" fill="#999999"/>
+      <rect x="74" y="410" width="100" height="3" fill="#999999"/>
+      <!-- ビルCの窓（未完成感） -->
+      <g fill="#F9634A" opacity="0.6">
+        <rect x="92" y="234" width="16" height="18"/><rect x="116" y="234" width="16" height="18"/><rect x="140" y="234" width="16" height="18"/>
+        <rect x="92" y="270" width="16" height="18"/><rect x="116" y="270" width="16" height="18"/>
+        <rect x="140" y="320" width="16" height="18"/>
+        <rect x="92" y="370" width="16" height="18"/><rect x="116" y="370" width="16" height="18"/>
+      </g>
+
+      <!-- タワークレーン -->
+      <!-- マスト -->
+      <rect x="130" y="60" width="8" height="165" fill="#B2B2B2"/>
+      <!-- ジブ（水平アーム） -->
+      <rect x="60" y="62" width="200" height="5" fill="#B2B2B2"/>
+      <!-- カウンターウェイト側 -->
+      <rect x="56" y="62" width="10" height="20" fill="#999999"/>
+      <!-- ワイヤー -->
+      <line x1="200" y1="67" x2="170" y2="140" stroke="#B2B2B2" stroke-width="1.5"/>
+      <line x1="220" y1="67" x2="170" y2="140" stroke="#B2B2B2" stroke-width="1.5"/>
+      <!-- フック -->
+      <rect x="165" y="140" width="10" height="8" fill="#999999"/>
+
+      <!-- 地面ライン -->
+      <rect x="0" y="478" width="420" height="2" fill="#CCCCCC"/>
+
+      <!-- グリッドオーバーレイ（建設図面っぽさ） -->
+      <g stroke="#F9634A" stroke-width="0.4" opacity="0.3">
+        <line x1="0" y1="100" x2="420" y2="100"/>
+        <line x1="0" y1="200" x2="420" y2="200"/>
+        <line x1="0" y1="300" x2="420" y2="300"/>
+        <line x1="0" y1="400" x2="420" y2="400"/>
+        <line x1="100" y1="0" x2="100" y2="480"/>
+        <line x1="200" y1="0" x2="200" y2="480"/>
+        <line x1="300" y1="0" x2="300" y2="480"/>
+        <line x1="400" y1="0" x2="400" y2="480"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-eyebrow">
+    <div class="hero-eyebrow-line"></div>
+    <span>Customer Success — Career Document</span>
+  </div>
+  <h1 class="hero-title">CS戦略の進化と<em>自身の役割</em></h1>
+  <p class="hero-subtitle">組織の変遷と価値創出の軌跡</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><span class="hero-meta-label">Period</span><span class="hero-meta-value">2022年4月 〜 現在</span></div>
+    <div class="hero-meta-item"><span class="hero-meta-label">Domain</span><span class="hero-meta-value">建設DX / SaaS</span></div>
+    <div class="hero-meta-item"><span class="hero-meta-label">Phases</span><span class="hero-meta-value">7フェーズ</span></div>
+    <div class="hero-meta-item"><span class="hero-meta-label">Team Growth</span><span class="hero-meta-value">5名 → 21名</span></div>
+  </div>
+  <div class="strength-banner">
+    <div class="strength-banner-label">再現性の軸</div>
+    <div class="strength-banner-catch">戦略と現場、<em>両方を知っている</em>から動かせる。</div>
+    <p>
+      組織の方針と現場の実態の間には、必ずギャップがあります。
+      そのギャップを埋めるために、目指すゴールから逆算してオペレーションを設計し、チームが動ける仕組みに変えることを一貫して行ってきました。<br>
+      KPIがない、前例がない——そういう環境でも、戦略と現場の両側を知っているからこそ、調整しながら前に進められると考えています。
+    </p>
+  </div>
+</header>
+
+<!-- TIMELINE -->
+<div class="tl-section fade-up">
+  <div class="label-xs" style="margin-bottom:20px; font-size:13px; letter-spacing:0.15em; color:#999999;">Timeline — Phase Overview</div>
+  <div class="tl-track">
+    <div class="tl-node" onclick="jumpTo('phase1',this)"><div class="tl-dot"></div><div class="tl-info"><div class="tl-date">2022.04</div><div class="tl-name">オンボーディング<br>支援</div><div class="tl-badge">メンバー</div></div></div>
+    <div class="tl-node" onclick="jumpTo('phase2',this)"><div class="tl-dot"></div><div class="tl-info"><div class="tl-date">2023.01</div><div class="tl-name">現場活用<br>浸透</div><div class="tl-badge">主任</div></div></div>
+    <div class="tl-node" onclick="jumpTo('phase3',this)"><div class="tl-dot"></div><div class="tl-info"><div class="tl-date">2024.01</div><div class="tl-name">価値証明</div><div class="tl-badge">課長</div></div></div>
+    <div class="tl-node" onclick="jumpTo('phase4',this)"><div class="tl-dot"></div><div class="tl-info"><div class="tl-date">2024.08</div><div class="tl-name">顧客接点<br>最大化</div><div class="tl-badge">課長</div></div></div>
+    <div class="tl-node" onclick="jumpTo('phase5',this)"><div class="tl-dot"></div><div class="tl-info"><div class="tl-date">2024.10</div><div class="tl-name">リテンション<br>強化</div><div class="tl-badge">課長</div></div></div>
+    <div class="tl-node" onclick="jumpTo('phase6',this)"><div class="tl-dot"></div><div class="tl-info"><div class="tl-date">2025.04</div><div class="tl-name">エンゲージメント<br>管理</div><div class="tl-badge">課長</div></div></div>
+    <div class="tl-node" onclick="jumpTo('phase7',this)"><div class="tl-dot"></div><div class="tl-info"><div class="tl-date">2026.01</div><div class="tl-name">データ<br>ドリブン</div><div class="tl-badge">課長</div></div></div>
+  </div>
+</div>
+
+<!-- ROLE EVOLUTION -->
+<div class="role-evo fade-up">
+  <div class="role-block" style="border-top-color:#999999"><div class="role-block-label">実行者</div><div class="role-block-title">自分で動いて<br>数字を作る</div><div class="role-block-ph">Ph.1</div></div>
+  <div class="role-block"><div class="role-block-label">推進者</div><div class="role-block-title">チームを牽引し<br>戦略を回す</div><div class="role-block-ph">Ph.2</div></div>
+  <div class="role-block"><div class="role-block-label">設計者</div><div class="role-block-title">PJを立ち上げ<br>仕組みを作る</div><div class="role-block-ph">Ph.3〜5</div></div>
+  <div class="role-block" style="border-top-color:var(--c1)"><div class="role-block-label">データ化</div><div class="role-block-title">勘と経験を<br>スコアに変換</div><div class="role-block-ph">Ph.6〜7</div></div>
+</div>
+
+<div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-title">フェーズ詳細</div><div class="sec-div-line"></div></div>
+
+<!-- 全展開ボタン -->
+<div class="phases-header">
+  <button class="toggle-all-btn" id="toggleAllBtn" onclick="toggleAll()">
+    <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    すべて展開
+  </button>
+</div>
+
+<!-- PHASES -->
+<div class="phases">
+
+<!-- Ph1 -->
+<div class="pcard fade-up" id="phase1">
+  <div class="phead" onclick="toggleCard('phase1')">
+    <div class="phead-accent"></div>
+    <div class="pnum">01</div><div class="pdot"></div>
+    <div class="phead-info"><div class="ptitle">オンボーディング支援フェーズ</div><div class="pdate">2022年4月〜</div><span class="prole">メンバー</span><span class="pmembers">部員 5名</span></div>
+    <div class="phead-right"><span class="click-hint">クリックで展開</span><span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div>
+  <div class="pbody-wrap"><div class="pbody-inner"><div class="pbody">
+    <div class="pgrid">
+      <div class="psec"><div class="psec-label">顧客のニーズ・課題</div><div class="psec-content">建設現場ではiPad操作自体に不慣れなユーザーが多く、アプリの基本操作以前に端末操作の習熟が必要な状態。アプリ導入後も活用定着が進まず、現場での利用率向上が課題。</div></div>
+      <div class="psec"><div class="psec-label">提供プロダクト・価値</div><div class="psec-content">図面管理・写真管理・帳票作成など、紙中心で行われていた業務をアプリ上で完結させる機能を提供。（標準機能）</div></div>
+      <div class="psec fw"><div class="psec-label">戦略</div><div class="psec-content"><strong>明確なCS戦略は未整備な状態。</strong>営業活動の補完として説明会・操作レクチャーを実施し、プロダクト認知を広げる。プロダクト理解不足による未活用状態を解消し、利用立ち上がりを加速させることが目的。</div></div>
+      <div class="psec"><div class="psec-label">具体施策</div><ul class="施策-list"><li>現場訪問</li><li>Webによる顧客向け操作説明会</li></ul></div>
+      <div class="psec"><div class="psec-label">自身の役割</div><div class="psec-content">メンバーとして顧客向け操作説明会を実施。</div></div>
+      <div class="psec fw">
+        <div class="psec-label">目標 ／ 実績</div>
+        <table class="gr-table">
+          <thead><tr><th class="col-goal">目標</th><th class="col-arrow"></th><th class="col-result">実績</th></tr></thead>
+          <tbody>
+            <tr class="gr-row">
+              <td class="gr-goal"><span class="gr-tag org">部／課</span><br>KPI設定なし</td>
+              <td class="gr-arrow">→</td>
+              <td class="gr-no-result">―</td>
+            </tr>
+            <tr class="gr-row">
+              <td class="gr-goal"><span class="gr-tag self">自主設定</span><br>初月での独り立ち</td>
+              <td class="gr-arrow">→</td>
+              <td><div class="gr-result"><div class="gr-tag self" style="margin-bottom:6px;">自主設定</div><div class="gr-result-num">初月</div><div class="gr-result-label">独り立ち達成</div></div></td>
+            </tr>
+            <tr class="gr-row">
+              <td class="gr-goal"><span class="gr-tag self">自主設定</span><br>半期60回以上の説明会実施</td>
+              <td class="gr-arrow">→</td>
+              <td><div class="gr-result"><div class="gr-tag self" style="margin-bottom:6px;">自主設定</div><div class="gr-result-num">79回</div><div class="gr-result-label"><span>単独実施</span><span class="gr-result-badge">目標比 131%</span></div></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div></div></div>
+</div>
+
+<!-- Ph2 -->
+<div class="pcard fade-up" id="phase2">
+  <div class="phead" onclick="toggleCard('phase2')">
+    <div class="phead-accent"></div>
+    <div class="pnum">02</div><div class="pdot"></div>
+    <div class="phead-info"><div class="ptitle">現場活用浸透フェーズ</div><div class="pdate">2023年1月〜</div><span class="prole">主任</span><span class="pmembers">部員 12名</span></div>
+    <div class="phead-right"><span class="click-hint">クリックで展開</span><span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div>
+  <div class="pbody-wrap"><div class="pbody-inner"><div class="pbody">
+    <div class="pgrid">
+      <div class="psec"><div class="psec-label">顧客のニーズ・課題</div><div class="psec-content">基本操作理解が進み、一歩踏み込んだ「検査業務の効率化」などのニーズが増加。一方で、本社と現場の活用意識の差が顕在化。導入担当者の異動・退職により社内推進者不在の企業も増加。</div></div>
+      <div class="psec"><div class="psec-label">提供プロダクト・価値</div><div class="psec-content">検査機能や帳票デジタル化機能といった検査業務の効率化機能を提供（オプション機能）。Web説明会（ウェビナー）でのロータッチ施策の実施。</div></div>
+      <div class="psec fw"><div class="psec-label">戦略 ── 炎の現場周回戦略</div><div class="psec-content">距離・工数を問わず顧客現場を訪問し、現場利用の価値浸透を図る戦略。現場起点での利用・定着へ転換させることが目的。</div></div>
+      <div class="psec"><div class="psec-label">具体施策</div><ul class="施策-list"><li>現場訪問</li><li>Webによる顧客向け操作説明会</li><li>現場課題ヒアリング</li></ul></div>
+      <div class="psec"><div class="psec-label">自身の役割</div><div class="psec-content">主任として現場活用支援とWeb説明会運営を推進。</div></div>
+      <div class="psec fw">
+        <div class="psec-label">目標 ／ 実績</div>
+        <table class="gr-table">
+          <thead><tr><th class="col-goal">目標</th><th class="col-arrow"></th><th class="col-result">実績</th></tr></thead>
+          <tbody>
+            <tr class="gr-row">
+              <td class="gr-goal"><span class="gr-tag org">部／課</span><br>KPI設定なし</td>
+              <td class="gr-arrow">→</td>
+              <td><div class="gr-result"><div class="gr-tag org" style="margin-bottom:6px;">部／課</div><div class="gr-result-num">+278→+466</div><div class="gr-result-label">ARPU成長幅の拡大</div></div></td>
+            </tr>
+            <tr class="gr-row">
+              <td class="gr-goal"><span class="gr-tag self">自主設定</span><br>行動数 1.25件／1日</td>
+              <td class="gr-arrow">→</td>
+              <td><div class="gr-result"><div class="gr-tag self" style="margin-bottom:6px;">自主設定</div><div class="gr-result-num">1.41</div><div class="gr-result-label"><span>行動数（部内平均1.40）</span><span class="gr-result-badge">目標比 113%</span></div></div></td>
+            </tr>
+            <tr class="gr-row">
+              <td class="gr-goal"><span class="gr-tag org">部／課</span><br>ログイン率向上</td>
+              <td class="gr-arrow">→</td>
+              <td><div class="gr-result"><div class="gr-tag org" style="margin-bottom:6px;">部／課</div><div class="gr-result-num">約10%</div><div class="gr-result-label">ログイン率改善（375ID大手企業）<br>最終920IDまで拡張</div></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div></div></div>
+</div>
+
+<!-- Ph3 -->
+<div class="pcard fade-up" id="phase3">
+  <div class="phead" onclick="toggleCard('phase3')">
+    <div class="phead-accent"></div>
+    <div class="pnum">03</div><div class="pdot"></div>
+    <div class="phead-info"><div class="ptitle">価値証明フェーズ</div><div class="pdate">2024年1月〜</div><span class="prole">課長</span><span class="pmembers">部員 14名</span></div>
+    <div class="phead-right"><span class="click-hint">クリックで展開</span><span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div>
+  <div class="pbody-wrap"><div class="pbody-inner"><div class="pbody">
+    <div class="pgrid">
+      <div class="psec"><div class="psec-label">顧客のニーズ・課題</div><div class="psec-content">現場では利便性が評価されている一方で、導入効果を定量的に説明できる材料が不足しており、決裁者が全社展開や追加投資の判断を行いづらい状況。</div></div>
+      <div class="psec"><div class="psec-label">提供プロダクト・価値</div><div class="psec-content">CSが現場に対し、説明会から運用ヒアリングまでを一貫して実施し、工数削減や作業時間短縮などの定量定性面の効果を整理し算出。現場での活用促進と決裁者への導入価値訴求の両立を支援提供。</div></div>
+      <div class="psec fw"><div class="psec-label">戦略 ── ファクト回収PJ</div><div class="psec-content">営業が提案を進めたい企業の現場から費用対効果データを回収し、営業提案の根拠を強化するPJ。感覚的な価値訴求から脱却し、<strong>定量根拠に基づく提案へ転換</strong>させることが目的。</div></div>
+      <div class="psec"><div class="psec-label">具体施策</div><ul class="施策-list"><li>費用対効果ファクトの定義設計</li><li>入力フォーマット設計</li><li>営業連携フロー設計</li></ul></div>
+      <div class="psec"><div class="psec-label">自身の役割</div><div class="psec-content">課長として「ファクト回収PJ」を立ち上げ、費用対効果ファクトの定義設計と営業連携フローを構築。</div></div>
+      <div class="psec fw">
+        <div class="psec-label">目標 ／ 実績</div>
+        <table class="gr-table">
+          <thead><tr><th class="col-goal">目標</th><th class="col-arrow"></th><th class="col-result">実績</th></tr></thead>
+          <tbody>
+            <tr class="gr-row">
+              <td class="gr-goal"><span class="gr-tag org">部／課</span><br>KPI設定なし</td>
+              <td class="gr-arrow">→</td>
+              <td class="gr-no-result">―</td>
+            </tr>
+            <tr class="gr-row">
+              <td class="gr-goal"><span class="gr-tag self">自主設定</span><br>ファクト回収 600件</td>
+              <td class="gr-arrow">→</td>
+              <td><div class="gr-result"><div class="gr-tag self" style="margin-bottom:6px;">自主設定</div><div class="gr-result-num">602件</div><div class="gr-result-label"><span>ファクト回収</span><span class="gr-result-badge">達成率 100%</span></div></div></td>
+            </tr>
+            <tr class="gr-row">
+              <td class="gr-goal"><span class="gr-tag org">部／課</span><br>営業提案の定量根拠強化</td>
+              <td class="gr-arrow">→</td>
+              <td><div class="gr-result"><div class="gr-tag org" style="margin-bottom:6px;">部／課</div><div class="gr-result-num">816万円</div><div class="gr-result-label">回収ファクト活用による新規MRR創出貢献</div></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div></div></div>
+</div>
+
+<!-- Ph4 & 5 parallel -->
+<div class="par-wrap">
+  <div class="pcard fade-up" id="phase4">
+  <div class="phead" onclick="toggleCard('phase4')">
+    <div class="phead-accent"></div>
+    <div class="pnum">04</div><div class="pdot"></div>
+    <div class="phead-info"><div class="ptitle">顧客接点最大化フェーズ</div><div class="pdate">2024年8月〜</div><span class="prole">課長</span><span class="pmembers">15名</span></div>
+    <div class="phead-right"><span class="click-hint">クリックで展開</span><span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div>
+    <div class="pbody-wrap"><div class="pbody-inner"><div class="pbody">
+      <div class="par-badge">◎ フェーズ5と並走して実施</div>
+      <div class="pgrid">
+        <div class="psec fw"><div class="psec-label">顧客のニーズ・課題</div><div class="psec-content">導入後の顧客接点が十分に確保されていない企業では、利用状況の把握や課題共有の機会が少なく、プロダクト価値が十分に伝わらないまま利用が停滞するケースが発生。</div></div>
+        <div class="psec fw"><div class="psec-label">提供プロダクト・価値</div><div class="psec-content">プロダクト活用実態やリリース内容の共有を通して、利用価値理解の促進と顧客期待値の調整を提供。</div></div>
+        <div class="psec fw"><div class="psec-label">戦略 ── 全網羅PJ</div><div class="psec-content">営業に依存せず、顧客フォローを目的に、契約ID数20以上の企業と必ず接点を持つ「未接点企業ゼロ」戦略。接点の偏り、対応漏れを解消し、顧客接点の平準化と状態把握を実現させることが目的（対象：約400社　期間：3か月に1回）。</div></div>
+        <div class="psec"><div class="psec-label">具体施策</div><ul class="施策-list"><li>顧客セグメント設計</li><li>優先順位設計</li><li>担当企業差配</li><li>定例実施管理</li></ul></div>
+        <div class="psec"><div class="psec-label">自身の役割</div><div class="psec-content">課長として「全網羅PJ」を立ち上げ、顧客セグメント設計と担当差配ルールを構築。</div></div>
+        <div class="psec fw">
+          <div class="psec-label">目標 ／ 実績</div>
+          <table class="gr-table">
+            <thead><tr><th class="col-goal">目標</th><th class="col-arrow"></th><th class="col-result">実績</th></tr></thead>
+            <tbody>
+              <tr class="gr-row">
+                <td class="gr-goal"><span class="gr-tag org">部／課</span><br>KPI設定なし</td>
+                <td class="gr-arrow">→</td>
+                <td class="gr-no-result">―</td>
+              </tr>
+              <tr class="gr-row">
+                <td class="gr-goal"><span class="gr-tag self">自主設定</span><br>未接点企業0（約400社対象）</td>
+                <td class="gr-arrow">→</td>
+                <td><div class="gr-result"><div class="gr-tag self" style="margin-bottom:6px;">自主設定</div><div class="gr-result-num">269社</div><div class="gr-result-label"><span>302社中と接点創出</span><span class="gr-result-badge">達成率 89%</span></div></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div></div></div>
+  </div>
+
+  <div class="pcard fade-up" id="phase5">
+  <div class="phead" onclick="toggleCard('phase5')">
+    <div class="phead-accent"></div>
+    <div class="pnum">05</div><div class="pdot"></div>
+    <div class="phead-info"><div class="ptitle">リテンション強化フェーズ</div><div class="pdate">2024年10月〜</div><span class="prole">課長</span><span class="pmembers">15名</span></div>
+    <div class="phead-right"><span class="click-hint">クリックで展開</span><span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div>
+    <div class="pbody-wrap"><div class="pbody-inner"><div class="pbody">
+      <div class="par-badge">◎ フェーズ4と並走して実施（追加PJ）</div>
+      <div class="pgrid">
+        <div class="psec fw"><div class="psec-label">顧客のニーズ・課題</div><div class="psec-content">利用が停滞している企業では、運用課題や社内推進の難しさ、他社ツールの追い上げによりツールの継続利用に不安を感じており、解約を検討する企業が一定数存在。</div></div>
+        <div class="psec fw"><div class="psec-label">提供プロダクト・価値</div><div class="psec-content">プロダクト活用実態やリリース内容の共有を通して、利用価値理解の促進と顧客期待値の調整を提供。</div></div>
+        <div class="psec fw"><div class="psec-label">戦略 ── リテンションPJ</div><div class="psec-content">解約を示唆した企業に対し、重点フォローを行い解約抑止を目的とした追加PJ。兆候を捉えた早期介入によって解約を未然に防止することが目的。</div></div>
+        <div class="psec"><div class="psec-label">具体施策</div><ul class="施策-list"><li>リテンション企業の定義設計</li><li>管理フロー構築</li><li>フォロー体制整備</li></ul></div>
+        <div class="psec"><div class="psec-label">自身の役割</div><div class="psec-content">課長として「リテンションPJ」を立ち上げ、解約示唆企業の定義設計と重点フォロー体制を構築。</div></div>
+        <div class="psec fw">
+          <div class="psec-label">目標 ／ 実績</div>
+          <table class="gr-table">
+            <thead><tr><th class="col-goal">目標</th><th class="col-arrow"></th><th class="col-result">実績</th></tr></thead>
+            <tbody>
+              <tr class="gr-row">
+                <td class="gr-goal"><span class="gr-tag org">部／課</span><br>―</td>
+                <td class="gr-arrow">→</td>
+                <td class="gr-result">
+                  <div class="gr-result-num" style="font-size:15px; color:#666666;">仕組みの構築</div>
+                  <div class="gr-result-label"><span>フェーズ4と並走する追加PJとして立ち上げ。数値目標の設定前に、解約示唆企業の定義・管理フロー・フォロー体制を一から設計し、組織として「解約を早期に捉える仕組み」を整備した。</span></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div></div></div>
+  </div>
+</div>
+
+<!-- Ph6 -->
+<div class="pcard fade-up" id="phase6">
+  <div class="phead" onclick="toggleCard('phase6')">
+    <div class="phead-accent"></div>
+    <div class="pnum">06</div><div class="pdot"></div>
+    <div class="phead-info"><div class="ptitle">エンゲージメント管理フェーズ</div><div class="pdate">2025年4月〜</div><span class="prole">課長</span><span class="pmembers">部員 21名</span></div>
+    <div class="phead-right"><span class="click-hint">クリックで展開</span><span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div>
+  <div class="pbody-wrap"><div class="pbody-inner"><div class="pbody">
+    <div class="pgrid">
+      <div class="psec"><div class="psec-label">顧客のニーズ・課題</div><div class="psec-content">開発ロードマップと顧客期待とのギャップや、他社ツールの機能拡張の影響により、現場からプロダクトへの懸念が高まる企業が増加。特にS⁺の開発進捗に対する不安から利用継続への反発が発生し、窓口担当者から現場での説明・フォローを求められるケースが増加。</div></div>
+      <div class="psec"><div class="psec-label">提供プロダクト・価値</div><div class="psec-content">現場フォローやプロダクト説明機会の提供による、現場理解の促進と顧客期待値の調整。</div></div>
+      <div class="psec fw"><div class="psec-label">戦略 ── 原点回帰戦略</div><div class="psec-content">営業活動を抑制し既存顧客フォローを強化するビジネスグループ方針のもと、CSは全網羅PJを継続し顧客との定期接点を確保。<strong>既存顧客の継続価値創出へシフト</strong>させることが目的。</div></div>
+      <div class="psec"><div class="psec-label">具体施策</div><ul class="施策-list"><li>カスタマーエンゲージメントレベルの設計</li><li>エンゲージメント可視化</li><li>月次レポート</li></ul></div>
+      <div class="psec"><div class="psec-label">自身の役割</div><div class="psec-content">課長としてカスタマーエンゲージメントレベルを設計し、顧客接点の可視化と運用基盤を構築。</div></div>
+      <div class="psec fw">
+        <div class="psec-label">目標 ／ 実績</div>
+        <table class="gr-table">
+          <thead><tr><th class="col-goal">目標</th><th class="col-arrow"></th><th class="col-result">実績</th></tr></thead>
+          <tbody>
+            <tr class="gr-row">
+              <td class="gr-goal"><span class="gr-tag org">部／課</span><br>KPI設定なし</td>
+              <td class="gr-arrow">→</td>
+              <td class="gr-no-result">―</td>
+            </tr>
+            <tr class="gr-row">
+              <td class="gr-goal"><span class="gr-tag self">自主設定</span><br>常時300社との定期接点</td>
+              <td class="gr-arrow">→</td>
+              <td><div class="gr-result"><div class="gr-tag self" style="margin-bottom:6px;">自主設定</div><div class="gr-result-num">212社</div><div class="gr-result-label"><span>300社中3か月以内に接点</span><span class="gr-result-badge">達成率 70.6%</span></div></div></td>
+            </tr>
+            <tr class="gr-row">
+              <td class="gr-goal"><span class="gr-tag self">自主設定</span><br>定例未実施者0</td>
+              <td class="gr-arrow">→</td>
+              <td><div class="gr-result"><div class="gr-tag self" style="margin-bottom:6px;">自主設定</div><div class="gr-result-num">5名中5名</div><div class="gr-result-label"><span>定例全員実施まで育成</span><span class="gr-result-badge">達成率 100%</span></div></div></td>
+            </tr>
+            <tr class="gr-row">
+              <td class="gr-goal"><span class="gr-tag self">自主設定</span><br>解約阻止目標 200万円</td>
+              <td class="gr-arrow">→</td>
+              <td><div class="gr-result"><div class="gr-tag self" style="margin-bottom:6px;">自主設定</div><div class="gr-result-num">345万円</div><div class="gr-result-label"><span>完全解約阻止</span><span class="gr-result-badge">達成率 172%</span></div></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div></div></div>
+</div>
+
+<!-- Ph7 -->
+<div class="pcard fade-up" id="phase7">
+  <div class="phead" onclick="toggleCard('phase7')">
+    <div class="phead-accent"></div>
+    <div class="pnum">07</div><div class="pdot"></div>
+    <div class="phead-info"><div class="ptitle">データドリブンフェーズ</div><div class="pdate">2026年1月〜</div><span class="prole">課長</span><span class="pmembers">部員 20名</span></div>
+    <div class="phead-right"><span class="click-hint">クリックで展開</span><span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div>
+  </div>
+  <div class="pbody-wrap"><div class="pbody-inner"><div class="pbody">
+    <div class="pgrid">
+      <div class="psec"><div class="psec-label">顧客のニーズ・課題</div><div class="psec-content">顧客規模やDX成熟度の違いにより、求められる支援内容が多様化。エンタープライズ企業ではAI活用やデータ分析など高度な業務改善提案が求められる一方、SMB企業でもDX推進部署の設置や役員関与が進み、顧客ごとの期待値に大きな差が発生。</div></div>
+      <div class="psec"><div class="psec-label">提供プロダクト・価値</div><div class="psec-content">顧客規模やDX成熟度に応じた活用提案や支援内容の整理による運用提案の提供。※ニーズに即したプロダクトの提供は3年がかりの状況</div></div>
+      <div class="psec fw"><div class="psec-label">戦略 ── 解約金額抑止・ヘルススコアPJ</div><div class="psec-content">顧客状態をスコア化し優先フォロー対象を可視化。ヘルススコアと解約金額の関係性を検証し、データに基づく解約抑止を図る戦略。<strong>勘や経験に依存した対応から、データドリブンで解約抑止を最適化</strong>させることが目的。</div></div>
+      <div class="psec"><div class="psec-label">具体施策</div><ul class="施策-list"><li>ヘルススコア設計</li><li>データ集計ロジック構築</li><li>営業連携フロー設計</li></ul></div>
+      <div class="psec"><div class="psec-label">自身の役割</div><div class="psec-content">課長としてヘルススコアを設計し、顧客状態の可視化と優先フォロー判断の仕組みを構築。</div></div>
+      <div class="psec fw">
+        <div class="psec-label">目標 ／ 実績（進行中）</div>
+        <table class="gr-table">
+          <thead><tr><th class="col-goal">目標</th><th class="col-arrow"></th><th class="col-result">実績</th></tr></thead>
+          <tbody>
+            <tr class="gr-row">
+              <td class="gr-goal"><span class="gr-tag org">部／課</span><br>解約金額抑止目標 9,000万円以内</td>
+              <td class="gr-arrow">→</td>
+              <td class="gr-no-result">進行中</td>
+            </tr>
+            <tr class="gr-row">
+              <td class="gr-goal"><span class="gr-tag self">自主設定</span><br>対象178社 総ヘルススコア60%以上（1,708点以上）</td>
+              <td class="gr-arrow">→</td>
+              <td><div class="gr-result"><div class="gr-tag self" style="margin-bottom:6px;">自主設定</div><div class="gr-result-num">56.8%</div><div class="gr-result-label">1,606点／2,848点<br>（2026年3月15日時点）<br><span class="gr-result-badge">進行中</span></div></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div></div></div>
+</div>
+
+</div><!-- /phases -->
+
+<div class="sec-div"><div class="sec-div-line"></div><div class="sec-div-title">再現性の軸</div><div class="sec-div-line"></div></div>
+
+<!-- STRENGTHS -->
+<div class="strengths">
+  <div class="str-grid">
+
+    <div class="str-card fade-up">
+      <div class="str-bg">01</div>
+      <div class="str-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--c1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+        </svg>
+      </div>
+      <div class="str-title">0→1のオペレーション構築力</div>
+      <div class="str-desc">KPIも前例もない状況で、自らゴールを定義し、仕組みとフローを設計してきた。ファクト回収PJ・全網羅PJ・ヘルススコアPJはすべてゼロから立ち上げた組織資産。</div>
+      <div class="str-tags"><span class="str-tag">Ph.3 ファクト回収PJ</span><span class="str-tag">Ph.4 全網羅PJ</span><span class="str-tag">Ph.7 ヘルススコアPJ</span></div>
+    </div>
+
+    <div class="str-card fade-up">
+      <div class="str-bg">02</div>
+      <div class="str-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--c1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/>
+          <polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/>
+        </svg>
+      </div>
+      <div class="str-title">戦略→現場への実装翻訳力</div>
+      <div class="str-desc">ボトムアップの現場課題も、トップダウンの組織方針も、「チームが実際に動ける形」に変換してきた。抽象的な戦略を、担当差配・フロー・セグメント設計という具体に落とし込む。</div>
+      <div class="str-tags"><span class="str-tag">Ph.2 炎の現場周回</span><span class="str-tag">Ph.4 顧客セグメント設計</span><span class="str-tag">Ph.6 エンゲージメント設計</span></div>
+    </div>
+
+    <div class="str-card fade-up">
+      <div class="str-bg">03</div>
+      <div class="str-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--c1)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
+          <line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/>
+        </svg>
+      </div>
+      <div class="str-title">感覚依存からデータドリブンへの変換力</div>
+      <div class="str-desc">「なんとなく危ない顧客」を定義・スコア化し、組織の判断基盤に変えてきた。ヘルススコア設計・ファクト定義・エンゲージメントレベル設計はすべてその実践。</div>
+      <div class="str-tags"><span class="str-tag">Ph.3 ファクト定義設計</span><span class="str-tag">Ph.6 エンゲージメントレベル設計</span><span class="str-tag">Ph.7 ヘルススコア設計</span></div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function toggleCard(id) {
+    document.getElementById(id).classList.toggle('open');
+    // Ph4とPh5は連動して開閉
+    if (id === 'phase4' || id === 'phase5') {
+      const linked = id === 'phase4' ? 'phase5' : 'phase4';
+      const current = document.getElementById(id);
+      const other = document.getElementById(linked);
+      if (current.classList.contains('open')) {
+        other.classList.add('open');
+      } else {
+        other.classList.remove('open');
+      }
+    }
+    updateToggleAllBtn();
+  }
+
+  function toggleAll() {
+    const cards = document.querySelectorAll('.pcard');
+    const allOpen = [...cards].every(c => c.classList.contains('open'));
+    cards.forEach(c => allOpen ? c.classList.remove('open') : c.classList.add('open'));
+    updateToggleAllBtn();
+  }
+
+  function updateToggleAllBtn() {
+    const btn = document.getElementById('toggleAllBtn');
+    if (!btn) return;
+    const cards = document.querySelectorAll('.pcard');
+    const allOpen = [...cards].every(c => c.classList.contains('open'));
+    const svg = btn.querySelector('svg polyline');
+    if (allOpen) {
+      btn.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg> すべて閉じる';
+    } else {
+      btn.innerHTML = '<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg> すべて展開';
+    }
+  }
+
+  const phaseMap = {
+    'phase1':'stn1','phase2':'stn2','phase3':'stn3','phase4':'stn4',
+    'phase5':'stn5','phase6':'stn6','phase7':'stn7'
+  };
+  const phaseIds = ['phase1','phase2','phase3','phase4','phase5','phase6','phase7'];
+
+  function jumpTo(id, node, source) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (!el.classList.contains('open')) el.classList.add('open');
+    setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+    if (source !== 'sticky') {
+      document.querySelectorAll('.tl-node').forEach(n => n.classList.remove('active'));
+      if (node) node.classList.add('active');
+    }
+    document.querySelectorAll('.tl-sticky-node').forEach(n => n.classList.remove('active'));
+    const stn = document.getElementById(phaseMap[id]);
+    if (stn) stn.classList.add('active');
+  }
+
+  // ── sticky bar 制御 ──
+  const stickyBar = document.getElementById('tlStickyBar');
+  const tlSection = document.querySelector('.tl-section');
+
+  // スクロール位置から現在のフェーズを検出
+  function detectActivePhase() {
+    if (!stickyBar.classList.contains('visible')) return;
+    const stickyHeight = stickyBar.offsetHeight;
+    const threshold = stickyHeight + window.innerHeight * 0.3; // 画面上部30%
+
+    let activeId = null;
+    for (const id of phaseIds) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const rect = el.getBoundingClientRect();
+      // カードの上端が threshold より上にある = 画面に入っている
+      if (rect.top < threshold) {
+        activeId = id;
+      }
+    }
+    document.querySelectorAll('.tl-sticky-node').forEach(n => n.classList.remove('active'));
+    if (activeId) {
+      const stn = document.getElementById(phaseMap[activeId]);
+      if (stn) stn.classList.add('active');
+    }
+  }
+
+  function updateSticky() {
+    if (!tlSection || !stickyBar) return;
+    const tlBottom = tlSection.getBoundingClientRect().bottom;
+    if (tlBottom < 0) {
+      stickyBar.classList.add('visible');
+      detectActivePhase();
+    } else {
+      stickyBar.classList.remove('visible');
+      document.querySelectorAll('.tl-sticky-node').forEach(n => n.classList.remove('active'));
+    }
+  }
+
+  window.addEventListener('scroll', updateSticky, { passive: true });
+
+  // ── フェードイン監視 ──
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 40);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.07 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Ph1を初期展開
+  document.getElementById('phase1').classList.add('open');
+  updateToggleAllBtn();
+</script>
+</body>
+</html>
