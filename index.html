@@ -415,11 +415,17 @@
     background: var(--c1); box-shadow: 0 0 8px rgba(249,99,74,0.4);
   }
 
-  /* 左側：フェーズ名・期間・役職・部員数を一列に */
+  /* 左側：フェーズ名・期間・役職・部員数を縦積みに */
   .phead-info {
     flex: 1;
-    display: flex; align-items: center;
-    gap: 16px; flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .phead-info-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
   }
   .ptitle { font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 700; color: var(--text-primary); letter-spacing: -0.01em; }
   .pdate { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--text-muted); }
@@ -648,11 +654,67 @@
   ::-webkit-scrollbar-thumb { background: #CCCCCC; border-radius: 2px; }
 
   @media (max-width: 740px) {
-    .hero,.tl-section,.role-evo,.phases,.strengths,.sec-div { padding-left: 18px; padding-right: 18px; }
-    .pbody { padding-left: 18px; }
+    /* レイアウト余白 */
+    .hero { padding: 48px 18px 40px; }
+    .tl-section,.phases,.strengths,.sec-div,.phases-header { padding-left: 16px; padding-right: 16px; }
+    .role-evo { padding: 0 16px 40px; flex-direction: column; gap: 0; }
+    .pbody { padding: 4px 14px 20px 14px; }
+    .par-wrap { flex-direction: column; }
+
+    /* ヒーロー */
+    .hero-title { font-size: 26px; }
+    .hero-subtitle { font-size: 15px; }
+    .hero-meta { gap: 16px; }
+    .hero-meta-value { font-size: 14px; }
+    .strength-banner { padding: 18px 18px; }
+    .strength-banner-catch { font-size: 20px; }
+    .strength-banner p { font-size: 14px; }
+
+    /* stickyバー */
+    .tl-sticky-bar { padding: 8px 12px; }
+    .tl-sticky-label { display: none; }
+    .tl-sticky-name { font-size: 10px; }
+
+    /* タイムライン */
+    .tl-track { gap: 2px; overflow-x: auto; padding-bottom: 8px; }
+    .tl-node { min-width: 80px; padding: 6px 3px 8px; }
+    .tl-name { font-size: 11px; }
+    .tl-date { font-size: 10px; }
+    .tl-badge { font-size: 9px; padding: 2px 6px; }
+
+    /* 役割バー */
+    .role-block { border-top: 3px solid #CCCCCC; border-right: none; border-bottom: 1px solid #ECDAD8; border-radius: 0; }
+    .role-block:first-child { border-radius: 6px 6px 0 0; }
+    .role-block:last-child { border-radius: 0 0 6px 6px; border-top-color: var(--c1); border-bottom: none; }
+
+    /* フェーズカード */
+    .phead { padding: 14px 14px; gap: 10px; }
+    .ptitle { font-size: 15px; }
+    .pdate { font-size: 11px; }
+    .prole { font-size: 12px; }
+    .pmembers { font-size: 11px; }
+    .phead-info { gap: 8px; }
     .pgrid { grid-template-columns: 1fr; }
+    .psec-content { font-size: 14px; }
+    .psec-label { font-size: 11px; }
+    .施策-list li { font-size: 14px; }
+
+    /* 目標実績テーブル */
+    .gr-table { font-size: 13px; }
+    .gr-table thead tr { grid-template-columns: 1fr 18px 1fr; }
+    .gr-row { grid-template-columns: 1fr 18px 1fr; padding: 10px 0; }
+    .gr-result-num { font-size: 17px; }
+    .gr-result-label { font-size: 12px; }
+    .gr-goal { font-size: 13px; }
+
+    /* 強みカード */
     .str-grid { grid-template-columns: 1fr; }
-    .role-evo { flex-direction: column; }
+    .str-title { font-size: 16px; }
+    .str-desc { font-size: 13px; }
+
+    /* セクション見出し */
+    .sec-div { padding: 36px 16px 20px; }
+    .sec-div-title { font-size: 15px; }
   }
 </style>
 </head>
@@ -825,7 +887,7 @@
   <div class="phead" onclick="toggleCard('phase1')">
     <div class="phead-accent"></div>
     <div class="pnum">01</div><div class="pdot"></div>
-    <div class="phead-info"><div class="ptitle">オンボーディング支援フェーズ</div><div class="pdate">2022年4月〜</div><span class="prole">メンバー</span><span class="pmembers">部員 5名</span></div>
+    <div class="phead-info"><div class="ptitle">オンボーディング支援フェーズ</div><div class="phead-info-row"><div class="pdate">2022年4月〜</div><span class="prole">メンバー</span><span class="pmembers">部員 5名</span></div></div>
     <div class="phead-right"><span class="click-hint">クリックで展開</span><span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div>
   <div class="pbody-wrap"><div class="pbody-inner"><div class="pbody">
@@ -867,7 +929,7 @@
   <div class="phead" onclick="toggleCard('phase2')">
     <div class="phead-accent"></div>
     <div class="pnum">02</div><div class="pdot"></div>
-    <div class="phead-info"><div class="ptitle">現場活用浸透フェーズ</div><div class="pdate">2023年1月〜</div><span class="prole">主任</span><span class="pmembers">部員 12名</span></div>
+    <div class="phead-info"><div class="ptitle">現場活用浸透フェーズ</div><div class="phead-info-row"><div class="pdate">2023年1月〜</div><span class="prole">主任</span><span class="pmembers">部員 12名</span></div></div>
     <div class="phead-right"><span class="click-hint">クリックで展開</span><span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div>
   <div class="pbody-wrap"><div class="pbody-inner"><div class="pbody">
@@ -909,7 +971,7 @@
   <div class="phead" onclick="toggleCard('phase3')">
     <div class="phead-accent"></div>
     <div class="pnum">03</div><div class="pdot"></div>
-    <div class="phead-info"><div class="ptitle">価値証明フェーズ</div><div class="pdate">2024年1月〜</div><span class="prole">課長</span><span class="pmembers">部員 14名</span></div>
+    <div class="phead-info"><div class="ptitle">価値証明フェーズ</div><div class="phead-info-row"><div class="pdate">2024年1月〜</div><span class="prole">課長</span><span class="pmembers">部員 14名</span></div></div>
     <div class="phead-right"><span class="click-hint">クリックで展開</span><span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div>
   <div class="pbody-wrap"><div class="pbody-inner"><div class="pbody">
@@ -952,7 +1014,7 @@
   <div class="phead" onclick="toggleCard('phase4')">
     <div class="phead-accent"></div>
     <div class="pnum">04</div><div class="pdot"></div>
-    <div class="phead-info"><div class="ptitle">顧客接点最大化フェーズ</div><div class="pdate">2024年8月〜</div><span class="prole">課長</span><span class="pmembers">15名</span></div>
+    <div class="phead-info"><div class="ptitle">顧客接点最大化フェーズ</div><div class="phead-info-row"><div class="pdate">2024年8月〜</div><span class="prole">課長</span><span class="pmembers">15名</span></div></div>
     <div class="phead-right"><span class="click-hint">クリックで展開</span><span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div>
     <div class="pbody-wrap"><div class="pbody-inner"><div class="pbody">
@@ -989,7 +1051,7 @@
   <div class="phead" onclick="toggleCard('phase5')">
     <div class="phead-accent"></div>
     <div class="pnum">05</div><div class="pdot"></div>
-    <div class="phead-info"><div class="ptitle">リテンション強化フェーズ</div><div class="pdate">2024年10月〜</div><span class="prole">課長</span><span class="pmembers">15名</span></div>
+    <div class="phead-info"><div class="ptitle">リテンション強化フェーズ</div><div class="phead-info-row"><div class="pdate">2024年10月〜</div><span class="prole">課長</span><span class="pmembers">15名</span></div></div>
     <div class="phead-right"><span class="click-hint">クリックで展開</span><span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div>
     <div class="pbody-wrap"><div class="pbody-inner"><div class="pbody">
@@ -1026,7 +1088,7 @@
   <div class="phead" onclick="toggleCard('phase6')">
     <div class="phead-accent"></div>
     <div class="pnum">06</div><div class="pdot"></div>
-    <div class="phead-info"><div class="ptitle">エンゲージメント管理フェーズ</div><div class="pdate">2025年4月〜</div><span class="prole">課長</span><span class="pmembers">部員 21名</span></div>
+    <div class="phead-info"><div class="ptitle">エンゲージメント管理フェーズ</div><div class="phead-info-row"><div class="pdate">2025年4月〜</div><span class="prole">課長</span><span class="pmembers">部員 21名</span></div></div>
     <div class="phead-right"><span class="click-hint">クリックで展開</span><span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div>
   <div class="pbody-wrap"><div class="pbody-inner"><div class="pbody">
@@ -1073,7 +1135,7 @@
   <div class="phead" onclick="toggleCard('phase7')">
     <div class="phead-accent"></div>
     <div class="pnum">07</div><div class="pdot"></div>
-    <div class="phead-info"><div class="ptitle">データドリブンフェーズ</div><div class="pdate">2026年1月〜</div><span class="prole">課長</span><span class="pmembers">部員 20名</span></div>
+    <div class="phead-info"><div class="ptitle">データドリブンフェーズ</div><div class="phead-info-row"><div class="pdate">2026年1月〜</div><span class="prole">課長</span><span class="pmembers">部員 20名</span></div></div>
     <div class="phead-right"><span class="click-hint">クリックで展開</span><span class="chevron"><svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></span></div>
   </div>
   <div class="pbody-wrap"><div class="pbody-inner"><div class="pbody">
@@ -1265,8 +1327,7 @@
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-  // Ph1を初期展開
-  document.getElementById('phase1').classList.add('open');
+  // 初期状態はすべて閉じる
   updateToggleAllBtn();
 </script>
 </body>
